@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Game highlights · SidelineReel</title>
+<style>
+:root{color-scheme:light;--paper:#f6f6f0;--ink:#172f29;--dim:#52645a;--line:#d6dbd1;--green:#174f40;--lime:#e0ff83;--white:#fffefa;font-family:"DM Sans","Avenir Next",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink)}
+header{border-bottom:1px solid var(--line);background:var(--white)}
+.wrap{max-width:1050px;margin:auto;padding:0 28px}
+.bar{height:65px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:inline-flex;gap:9px;align-items:center;font-size:22px;font-weight:850;letter-spacing:-1.3px}
+.mark{background:var(--green);color:var(--lime);border-radius:8px;width:32px;height:32px;display:grid;place-items:center;font-size:18px;letter-spacing:-4px;padding-right:4px}
+.coach{display:flex;align-items:center;gap:10px;color:var(--dim);font-size:14px}
+.avatar{border-radius:50%;background:#e6ecce;color:var(--green);width:31px;height:31px;display:grid;place-items:center;font-weight:750;font-size:13px}
+main{padding:28px 0 46px}
+nav{font-size:13px;color:var(--dim);display:flex;gap:10px;align-items:center;margin-bottom:20px}
+.hero{position:relative;overflow:hidden;background:var(--green);color:white;border-radius:16px;padding:30px 34px}
+.hero:after{content:"";position:absolute;top:-45%;right:-55px;width:225px;height:185%;border:2px solid #ffffff24;border-radius:50%;pointer-events:none}
+.kicker{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:750;color:var(--lime)}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(29px,4.4vw,48px);line-height:1.08;letter-spacing:-1.9px;margin:12px 0 10px}
+.hero p{color:#e0ebdf;font-size:14px}
+h2{font-size:25px;letter-spacing:-1px}
+.section-head,.row,.notice,.actions,.bottom{display:flex;align-items:center}
+.section-head{justify-content:space-between;margin:27px 0 13px}
+.count,.meta{font-size:13px;color:var(--dim)}
+.notice{justify-content:space-between;gap:14px;padding:18px 20px;border:1px solid #c1cf97;border-radius:11px;background:#edf3d7;margin-top:20px}
+.notice strong{font-size:17px}
+.notice p{margin-top:4px;font-size:14px;color:#42543f}
+button,select,input{font:inherit}
+button{cursor:pointer}
+.btn{border:1px solid var(--green);background:var(--green);color:white;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:650}
+.btn:hover{background:#236b54}
+.btn:disabled{border-color:#d5dbd5;background:#e1e5df;color:#637166;cursor:default}
+.secondary{background:var(--white);color:var(--ink);border-color:#c0c9be}
+.secondary:hover{background:#eff3e9}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #d88d1b;outline-offset:3px}
+.list,.panel{background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.row{gap:17px;padding:15px 20px}
+.row+.row{border-top:1px solid var(--line)}
+.thumb{width:74px;height:43px;color:#e4f4dc;background:repeating-linear-gradient(90deg,#2a6c51 0 15px,#306f55 15px 30px);border-radius:6px;display:grid;place-items:center;font-size:12px;letter-spacing:1px;font-weight:bold;flex:none}
+.row h3{font-size:16px;margin-bottom:4px}
+.status{margin-left:auto;border-radius:20px;background:#e8f1e8;color:#315b41;font-size:12px;font-weight:680;padding:6px 10px}
+.pending{background:#faedca;color:#785015}.held{background:#e8eaf4;color:#4d5478}
+.bottom{justify-content:flex-end;margin-top:16px}
+.link{background:none;border:0;color:var(--green);font-size:14px;text-decoration:underline;text-underline-offset:3px;padding:5px 0}
+#review h1{margin:15px 0 6px}
+.sub{color:var(--dim);margin:0 0 20px;line-height:1.45}
+.grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,1fr);gap:18px;align-items:start}
+.stage{position:relative;aspect-ratio:1.63;background:repeating-linear-gradient(90deg,#285e49 0 12.5%,#30664e 12.5% 25%);overflow:hidden}
+.lines{position:absolute;inset:9%;border:2px solid #bfdfc998}
+.lines:before{content:"";position:absolute;inset:0 0 0 50%;border-left:2px solid #bfdfc998}
+.lines:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:23%;aspect-ratio:1;border-radius:50%;border:2px solid #bfdfc998}
+.box{position:absolute;top:27%;height:46%;width:13%;border:2px solid #bfdfc998}
+.box.left{left:-2px}.box.right{right:-2px}
+.dot{position:absolute;transform:translate(-50%,-50%);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;background:#d7e7d4;color:#214a3a;font-size:11px;font-weight:bold;box-shadow:0 2px 5px #163d3870}
+.opp{background:#ecaf88}
+#runner{left:72%;top:49%;width:41px;height:41px;font-size:17px;background:var(--lime);border:2px solid white;box-shadow:0 0 0 5px #dfff803a;z-index:2}
+#ball{left:76%;top:52%;width:9px;height:9px;background:white;border:1px solid #254637;z-index:3}
+.clipinfo,.controls,.decision{padding:17px 19px}
+.clipinfo{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.controls{display:flex;align-items:center;gap:10px}
+.controls input{min-width:20px;flex:1;accent-color:var(--green)}
+.controls output{font-size:12px;white-space:nowrap;color:var(--dim)}.controls button{min-width:66px}
+fieldset{padding:0;margin:0;border:0}
+legend{font-size:21px;font-weight:740;letter-spacing:-.6px;margin-bottom:8px}
+.reason{font-size:14px;line-height:1.45;color:var(--dim);margin:0 0 15px}
+.choice{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:8px;padding:12px;margin:7px 0;font-size:15px;cursor:pointer}
+.choice:has(:checked){border-color:var(--green);background:#eff6e8}
+.choice input{accent-color:var(--green)}select{width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;margin:3px 0 9px}
+.actions{gap:9px;flex-wrap:wrap;margin-top:15px}
+[hidden]{display:none!important}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding:0 15px}.hero{padding:24px 20px}.row{padding:13px 10px;gap:10px}.thumb{width:51px}.status{max-width:125px;text-align:center}.notice{align-items:flex-start;flex-wrap:wrap}.coach{font-size:12px}.clipinfo,.controls,.decision{padding:14px}}
+.tabs{display:flex;gap:18px;border-bottom:1px solid var(--line);margin-top:18px}
+.tabs button{display:flex;align-items:center;gap:7px;background:none;border:0;border-bottom:3px solid transparent;padding:13px 2px;color:var(--dim);font-size:15px}
+.tabs button[aria-pressed=true]{border-color:var(--green);color:var(--green);font-weight:700}
+.tabs span{font-size:12px;background:#e4e9dc;border-radius:12px;padding:2px 7px}
+button.row{width:100%;border:0;border-radius:0;color:inherit;background:none;text-align:left}
+button.row:hover{background:#f2f5ea}button.row:focus-visible{outline-offset:-3px}
+.row+.row{border-top:1px solid var(--line)}.row .title{display:block;font-size:16px;font-weight:700;margin-bottom:4px}
+.row .meta{display:block;line-height:1.4}.row .status{white-space:nowrap}
+#feedback{padding:12px 16px;background:#edf3d7;border-radius:8px;margin:0 0 12px}
+.empty{padding:20px;color:var(--dim)}
+</style>
+</head>
+<body>
+<header><div class="wrap bar"><div class="brand"><span class="mark" aria-hidden="true">▶▶</span>SidelineReel</div><div class="coach">Coach workspace <span class="avatar">JR</span></div></div></header>
+<main><div class="wrap">
+<section id="highlights">
+<nav aria-label="Location">Games <span>›</span> Ridgeline U14 <span>›</span> Highlights</nav>
+<div class="hero"><div class="kicker">Ridgeline Youth Soccer Club · U14</div><h1>Ridgeline vs. Westfield</h1><p>Saturday, Nov 14 &nbsp; · &nbsp; Final score &nbsp; 2–1</p></div>
+<div class="tabs" aria-label="Highlight views" role="group">
+<button id="allTab" aria-pressed="true">All highlights <span id="allCount"></span></button>
+<button id="queueTab" aria-pressed="false">Review queue <span id="queueCount"></span></button>
+</div>
+<div class="section-head"><h2 id="listTitle" tabindex="-1">Game highlights</h2></div>
+<p id="feedback" role="status" hidden></p>
+<div class="list" id="clips"></div><div class="bottom"><button id="reset" class="link" hidden>Reset demo</button></div>
+</section>
+<section id="review" hidden>
+<button id="back" class="link">← Game highlights</button>
+<h1 tabindex="-1" id="reviewHeading">Review highlight</h1><p class="sub" id="clipDetail"></p>
+<div class="grid"><div class="panel">
+<div class="clipinfo"><strong>Game clip</strong><span class="meta">Illustrated preview · 6 seconds</span></div>
+<div class="stage" role="img" id="diagram" aria-label="Illustrated game clip">
+<div class="lines"><i class="box left"></i><i class="box right"></i></div>
+<span class="dot" style="left:29%;top:30%">9</span><span class="dot" style="left:18%;top:58%">1</span><span class="dot opp" style="left:64%;top:36%">8</span><span class="dot opp" style="left:79%;top:56%">3</span><span class="dot opp" style="left:87%;top:48%">1</span>
+<span class="dot" id="runner"></span><span class="dot" id="ball"></span></div>
+<div class="controls"><button class="btn secondary" id="play">Play</button><input type="range" id="scrub" aria-label="Replay position" min="0" max="6" step="0.05" value="0"><output id="elapsed"></output></div>
+<p class="clipinfo meta">In the live app, coaches watch the recorded highlight here.</p>
+</div><div class="panel decision"><fieldset><legend>Which player is in this highlight?</legend>
+<p class="reason" id="reason"></p><div id="choices"></div>
+<label class="choice"><input type="radio" name="player" value="other">Another roster player</label>
+<select aria-label="Other roster player" id="other" hidden></select></fieldset>
+<div class="actions"><button class="btn" id="confirm" disabled>Confirm player</button><button class="btn secondary" id="hold">Can’t tell</button></div></div></div>
+</section></div></main>
+<script>
+const el = id => document.getElementById(id);
+const roster = {4:'Ava Patel',74:'Maya Lee',1:'Sam Chen',9:'Jules Reyes',14:'Alex Kim',11:'Riley Ross',19:'Taylor Bell'};
+const clips = [
+  {id:'cross', title:'Cross from the wing', time:'08:21', candidates:['4','14'], jersey:'14'},
+  {id:'save', title:'Near-post save', time:'12:08', assigned:'1'},
+  {id:'pass', title:'Through ball', time:'20:44', candidates:['9','19'], jersey:'19'},
+  {id:'tackle', title:'Midfield tackle', time:'31:06', candidates:['1','11'], jersey:'11'},
+  {id:'equalizer', title:'Equalizing goal', time:'36:12', candidates:['4','74'], jersey:'74'},
+  {id:'run', title:'Run down the wing', time:'45:30', candidates:['9','19'], jersey:'9'},
+  {id:'winner', title:'Winning goal', time:'52:46', assigned:'9'}
+];
+const key = 'sidelinereel.2026-11-14.clips.v2';
+const decisions = {};
+try {
+  const stored = localStorage.getItem(key);
+  const saved = stored ? JSON.parse(stored) : {equalizer:localStorage.getItem('sidelinereel.2026-11-14.goal-36-12.v1')};
+  for (const clip of clips.filter(c=>c.candidates)) {
+    const v = saved?.[clip.id];
+    if (v === 'held' || Object.hasOwn(roster,v)) decisions[clip.id] = v;
+  }
+} catch {}
+function persist() { try {localStorage.setItem(key,JSON.stringify(decisions));} catch {} }
+let queueOnly = false;
+let current;
+const assignedTo = clip => clip.assigned || decisions[clip.id];
+const familyReady = clip => Object.hasOwn(roster,assignedTo(clip));
+function showGame(message='',focus=false) {
+  pauseReplay();
+  el('review').hidden = true;
+  el('highlights').hidden = false;
+  const queue = clips.filter(c=>!familyReady(c));
+  const visible = queueOnly ? queue : clips;
+  el('allCount').textContent = clips.length;
+  el('queueCount').textContent = queue.length;
+  el('allTab').setAttribute('aria-pressed',String(!queueOnly));
+  el('queueTab').setAttribute('aria-pressed',String(queueOnly));
+  el('listTitle').textContent = queueOnly ? 'Clips to review' : 'Game highlights';
+  el('feedback').textContent = message;
+  el('feedback').hidden = !message;
+  el('reset').hidden = !Object.keys(decisions).length;
+  const rows = visible.map(clip=>{
+    const ready = familyReady(clip);
+    const held = assignedTo(clip)==='held';
+    const row = document.createElement(ready ? 'div' : 'button');
+    row.className = 'row';
+    row.dataset.clip = clip.id;
+    const status = ready ? 'Scheduled' : held ? 'On hold · Review ›' : 'Review clip ›';
+    const detail = ready ? 'Included in '+roster[assignedTo(clip)].split(' ')[0]+'’s next weekly reel' :
+      held ? 'Player unconfirmed · excluded from personal reels' : 'Possible match · #'+clip.candidates.join(' or #');
+    row.innerHTML = '<span class="thumb">'+clip.time+'</span><span><span class="title">'+clip.title+'</span><span class="meta">'+detail+'</span></span><span class="status '+(ready?'':held?'held':'pending')+'">'+status+'</span>';
+    if (!ready) row.onclick = ()=>openClip(clip);
+    return row;
+  });
+  el('clips').replaceChildren(...rows);
+  if (!rows.length) el('clips').innerHTML='<p class="empty">All clips have a player assigned.</p>';
+  if (focus) el('listTitle').focus();
+}
+el('allTab').onclick = ()=>{queueOnly=false;showGame();};
+el('queueTab').onclick = ()=>{queueOnly=true;showGame();};
+let frame = 0;
+let seconds = 0;
+function drawReplay(time) {
+  seconds = Math.min(6,Math.max(0,time));
+  const progress = Math.min(seconds/4.6,1);
+  const x = 40+progress*32, y = 65-progress*16;
+  const number = seconds >= 2.5 ? current.jersey : '·'+current.jersey.slice(-1);
+  el('runner').textContent = number;
+  el('runner').style.left = x+'%';
+  el('runner').style.top = y+'%';
+  el('ball').style.left = (x+4+Math.max(0,seconds-4.6)*11)+'%';
+  el('ball').style.top = (y+3-Math.max(0,seconds-4.6)*2)+'%';
+  el('diagram').setAttribute('aria-label','Illustrated highlight. Visible jersey number: '+number);
+  el('scrub').value = seconds;
+  el('elapsed').textContent = '0:0'+Math.floor(seconds)+' / 0:06';
+}
+function pauseReplay() {
+  cancelAnimationFrame(frame);
+  frame = 0;
+  el('play').textContent = seconds >= 6 ? 'Replay' : 'Play';
+}
+el('play').onclick = () => {
+  if (frame) return pauseReplay();
+  if (seconds >= 6) drawReplay(0);
+  const start = performance.now()-seconds*1000;
+  function tick(now) {
+    drawReplay((now-start)/1000);
+    if (seconds >= 6) pauseReplay();
+    else frame = requestAnimationFrame(tick);
+  }
+  el('play').textContent = 'Pause';
+  frame = requestAnimationFrame(tick);
+};
+el('scrub').oninput = () => { drawReplay(Number(el('scrub').value)); pauseReplay(); };
+function selection() {
+  const chosen = document.querySelector('input[name=player]:checked')?.value;
+  return chosen === 'other' ? el('other').value : chosen;
+}
+function updateChoice() {
+  el('other').hidden = document.querySelector('input[name=player]:checked')?.value !== 'other';
+  el('confirm').disabled = !Object.hasOwn(roster,selection());
+}
+el('review').addEventListener('change',updateChoice);
+function openClip(clip) {
+  current = clip;
+  el('reviewHeading').textContent = clip.title;
+  el('clipDetail').textContent = 'Ridgeline vs. Westfield · '+clip.time+' · Player review';
+  el('back').textContent = queueOnly ? '← Review queue' : '← All highlights';
+  el('reason').textContent = 'The jersey could be #'+clip.candidates.join(' or #')+'.';
+  el('choices').innerHTML = clip.candidates.map(n=>'<label class="choice"><input type="radio" name="player" value="'+n+'">'+roster[n]+' · #'+n+'</label>').join('');
+  document.querySelector('input[value=other]').checked=false;
+  el('other').replaceChildren(new Option('Choose a player',''),...Object.entries(roster)
+    .filter(([n])=>!clip.candidates.includes(n)).map(([n,name])=>new Option(name+' · #'+n,n)));
+  updateChoice();
+  drawReplay(0);
+  pauseReplay();
+  el('highlights').hidden = true;
+  el('review').hidden = false;
+  el('reviewHeading').focus();
+}
+function resolveClip(value) {
+  decisions[current.id]=value;
+  persist();
+  const action = value==='held' ? ' is on hold and can be reviewed later.' :
+    ' will appear in '+roster[value].split(' ')[0]+'’s next weekly reel.';
+  showGame(current.title+action,true);
+}
+el('confirm').onclick = ()=>{const value=selection();if(Object.hasOwn(roster,value)) resolveClip(value);};
+el('hold').onclick = ()=>resolveClip('held');
+el('back').onclick = ()=>showGame('',true);
+el('reset').onclick = ()=>{
+  for (const id of Object.keys(decisions)) delete decisions[id];
+  persist();
+  queueOnly=false;
+  showGame('',true);
+};
+showGame();
+</script>
+</body></html>
